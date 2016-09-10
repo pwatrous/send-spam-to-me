@@ -1,6 +1,5 @@
 Potential Sketchy Mailing List
 - Cat Facts
-- Trump Campaign Mailing List
 - Shillary Mailing List
 - Care.com
 - Party City
@@ -14,4 +13,7 @@ Potential Sketchy Mailing List
 - Pro Flowers
 - Ticketweb
 - 1800 Flowers
-- Crosswalk.com/newsletters
+
+Scripts added:
+- Crosswalk.com
+- Trump Campaign Mailing List
