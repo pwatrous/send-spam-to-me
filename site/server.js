@@ -92,7 +92,9 @@ function processFormFieldsIndividual(req, res) {
 function signUp(email) {
   if (!validator.isEmail(email))
     return;
-  var sitepage = null;
+  signUpForSite(email, 'http://www.crosswalk.com/newsletters/',
+    'crosswalk.js');
+  /*
   var phInstance = null;
   phantom.create()
     .then(instance => {
@@ -100,18 +102,31 @@ function signUp(email) {
       return instance.createPage();
     })
     .then(page => {
-      sitepage = page;
 
       // sign up for crosswalk
       page.open('http://www.crosswalk.com/newsletters/');
       page.evaluateJavaScript(setupInjectedScript(email, 'crosswalk.js'));
       page.close();
-      return phInstance.createPage();
+      return phInstance.exit();
+    })
+    .catch(error => {
+      console.log(error);
+      phInstance.exit();
+    });
+  */
+}
+
+function signUpForSite(email, url, script) {
+  var phInstance = null;
+  phantom.create()
+    .then(instance => {
+      phInstance = instance;
+      return instance.createPage();
     })
     .then(page => {
-      // sign up for trump
-      page.open('https://www.donaldjtrump.com/');
-      page.evaluateJavaScript(setupInjectedScript(email, 'trump.js'));
+      // sign up for the site
+      page.open(url);
+      page.evaluateJavaScript(setupInjectedScript(email, script));
       page.close();
       phInstance.exit();
     })
@@ -120,6 +135,16 @@ function signUp(email) {
       phInstance.exit();
     });
 }
+
+/*
+.then(page => {
+      // sign up for trump
+      page.open('https://www.donaldjtrump.com/');
+      page.evaluateJavaScript(setupInjectedScript(email, 'trump.js'));
+      page.close();
+      phInstance.exit();
+    })
+*/
 
 function setupInjectedScript(email, script) {
   var raw = String(fs.readFileSync('injected-scripts/' + script));
