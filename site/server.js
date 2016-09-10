@@ -1,7 +1,17 @@
 var http = require('http');
 var fs = require('fs');
+var formidable = require('formidable');
+var util = require('util');
+
+/*
+Serving of root html page
+*/
 var server = http.createServer(function (req, res) {
-    displayForm(res);
+    if (req.method.toLowerCase() == 'get') {
+      displayForm(res);
+    } else if (req.method.toLowerCase() == 'post') {
+      processFormFieldsIndividual(req, res);
+    }
 });
 
 function displayForm(res) {
@@ -13,6 +23,28 @@ function displayForm(res) {
         res.write(data);
         res.end();
     });
+}
+
+function processFormFieldsIndividual(req, res) {
+  // process the form's fields
+  var fields = [];
+  var form = new formidable.IncomingForm();
+  form.on('field', function (field, value) {
+    console.log('field');
+    console.log('value');
+    fields[field] = value;
+  });
+  // send a response to the client
+  form.on('end', function () {
+    res.writeHead(200, {
+      'content-type': 'text/plain'
+    });
+    res.write('recieved the data\n\n');
+    res.end(util.inspect({
+      fields: fields
+    }));
+  });
+  form.parse(req);
 }
 
 server.listen(1185);
