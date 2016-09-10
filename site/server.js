@@ -102,7 +102,6 @@ function signUp(email) {
       page.open('http://www.crosswalk.com/newsletters/');
       page.evaluateJavaScript(setupInjectedScript(email, 'crosswalk.js'));
       page.close();
-      console.log('signed up for crosswalk');
       // in last .then, do: "phInstance.exit()";
       // in every other do "return phInstance.createPage();"
       phInstance.exit();
@@ -115,7 +114,6 @@ function signUp(email) {
 
 function setupInjectedScript(email, script) {
   var raw = String(fs.readFileSync('injected-scripts/' + script));
-  console.log(raw);
   return raw.replace('%%EMAIL_ADDRESS%%', email);
 }
 
