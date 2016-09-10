@@ -7,10 +7,6 @@ html {
 	width: 80%;
 }
 
-.col {
-	text-align: center;
-}
-
 #emailsubmit {
 	margin-top: 3em;
 }
@@ -23,6 +19,7 @@ html {
 	margin-top: 3em;
 	padding-left: 10%;
 	padding-right: 10%;
+	text-align: center;
 }
 
 h1 {
