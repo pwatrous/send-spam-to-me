@@ -16,4 +16,4 @@ Potential Sketchy Mailing List
 
 Scripts added:
 - Crosswalk.com
-- Trump Campaign Mailing List
+- Clinton Campaign Mailing List
