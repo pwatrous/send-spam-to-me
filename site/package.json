@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/sl/send-spam-to-me#readme",
   "dependencies": {
-    "formidable": "^1.0.17"
+    "formidable": "^1.0.17",
+    "phantom": "^2.1.21"
   }
 }
