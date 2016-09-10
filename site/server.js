@@ -92,28 +92,14 @@ function processFormFieldsIndividual(req, res) {
 function signUp(email) {
   if (!validator.isEmail(email))
     return;
+  console.log('registering email: ' + email);
   signUpForSite(email, 'http://www.crosswalk.com/newsletters/',
     'crosswalk.js');
   /*
-  var phInstance = null;
-  phantom.create()
-    .then(instance => {
-      phInstance = instance;
-      return instance.createPage();
-    })
-    .then(page => {
-
-      // sign up for crosswalk
-      page.open('http://www.crosswalk.com/newsletters/');
-      page.evaluateJavaScript(setupInjectedScript(email, 'crosswalk.js'));
-      page.close();
-      return phInstance.exit();
-    })
-    .catch(error => {
-      console.log(error);
-      phInstance.exit();
-    });
+  signUpForSite(email, 'https://www.donaldjtrump.com/',
+    'trump.js');
   */
+  
 }
 
 function signUpForSite(email, url, script) {
@@ -126,9 +112,12 @@ function signUpForSite(email, url, script) {
     .then(page => {
       // sign up for the site
       page.open(url);
+      console.log('opened ' + url);
       page.evaluateJavaScript(setupInjectedScript(email, script));
+      console.log('evaluated script');
       page.close();
       phInstance.exit();
+      console.log('closed and exited phantom');
     })
     .catch(error => {
       console.log(error);
