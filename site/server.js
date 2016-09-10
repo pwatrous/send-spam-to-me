@@ -26,23 +26,21 @@ function displayForm(res) {
 }
 
 function processFormFieldsIndividual(req, res) {
-  // process the form's fields
   var fields = [];
   var form = new formidable.IncomingForm();
   form.on('field', function (field, value) {
-    console.log('field');
-    console.log('value');
-    fields[field] = value;
+      console.log('field: ' + field + ' value: ' + value);
+      fields[field] = value;
   });
-  // send a response to the client
+
   form.on('end', function () {
-    res.writeHead(200, {
-      'content-type': 'text/plain'
-    });
-    res.write('recieved the data\n\n');
-    res.end(util.inspect({
-      fields: fields
-    }));
+      res.writeHead(200, {
+          'content-type': 'text/plain'
+      });
+      res.write('received the data:\n\n');
+      res.end(util.inspect({
+          fields: fields
+      }));
   });
   form.parse(req);
 }
