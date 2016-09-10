@@ -125,16 +125,6 @@ function signUpForSite(email, url, script) {
     });
 }
 
-/*
-.then(page => {
-      // sign up for trump
-      page.open('https://www.donaldjtrump.com/');
-      page.evaluateJavaScript(setupInjectedScript(email, 'trump.js'));
-      page.close();
-      phInstance.exit();
-    })
-*/
-
 function setupInjectedScript(email, script) {
   var raw = String(fs.readFileSync('injected-scripts/' + script));
   return raw.replace('%%EMAIL_ADDRESS%%', email);
