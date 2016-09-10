@@ -1,13 +1,27 @@
+html {
+	font-family: Helvetica;
+}
+
+#form-body {
+	width: 80%;
+}
+
 .col {
 	text-align: center;
+}
+
+#emailsubmit {
+	margin-top: 3em;
 }
 
 .active {
 	text-align: left;
 }
 
-.s4 {
+.banner {
 	margin-top: 3em;
+	padding-left: 10%;
+	padding-right: 10%;
 }
 
 h1 {

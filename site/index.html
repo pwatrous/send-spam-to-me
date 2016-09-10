@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 
 	<title>Send Spam to me</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css" type="text/css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -12,15 +12,19 @@
 </head>
 
 <body>
-	<div class="row">
+	<div id="form-body" class="row">
 		<h1 class="col s6 offset-s3"><span class="flow-text">Send Spam to me</span></h1>
-		<div class="col s4"><i class="large material-icons">input</i>
-			<p>Input your email</p>
+		<div class="col s4 banner"><i class="large material-icons">input</i>
+			<p>Input your email.</p>
 		</div>
-		<div class="col s4"><i class="large material-icons">email</i></div>
-		<div class="col s4"><i class="large material-icons">thumb_down</i></div>
+		<div class="col s4 banner"><i class="large material-icons">email</i>
+			<p>Get mail!</p>
+		</div>
+		<div class="col s4 banner"><i class="large material-icons">thumb_down</i>
+			<p>Cry.</p>
+		</div>
 		<form id="emailsubmit" action="" method="post" enctype="multipart/form-data" class="col s12">
-			<div class="input-field col s12">
+			<div class="input-field col s4 offset-s4">
 				<input id="email" name="email" type="email" class="validate">
 				<label for="email" class="active">Email</label>
 			</div>
