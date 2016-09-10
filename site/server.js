@@ -70,15 +70,19 @@ function processFormFieldsIndividual(req, res) {
       fields[field] = value;
   });
   form.on('end', function () {
-    res.writeHead(200, {
-        'content-type': 'text/plain'
+    fs.readFile('thank-you.html', function (err, data) {
+      res.writeHead(200, {
+          'Content-Type': 'text/html',
+          'Content-Length': data.length
+      });
+      res.write(data);
+      res.end();
     });
-    res.write('received the data:\n\n');
-    res.end(util.inspect({
-        fields: fields
-    }));
   });
   form.parse(req);
+  
+  // sign people up for terrible things here!
+  var email = fields['email'];
   
 }
 
