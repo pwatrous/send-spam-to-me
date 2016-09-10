@@ -98,6 +98,8 @@ function signUp(email) {
   signUpForSite(email,
     'https://www.hillaryclinton.com/forms/om-hvf-join/?utm_medium=om2016&utm_source=gs&utm_campaign=lb-branded&utm_content=105583673051&utm_term=c&gclid=Cj0KEQjw3s6-BRC3kKL_86XDvq4BEiQAAUqtZxBrOsMz4SyoZcPzZ_M2HRmB_XY-ugY3xwx5_6ggVMEaAoI08P8HAQ',
     'hillary.js');
+  signUpForSite(email, 'http://www.proflowers.com/blog/?ref=homenoref',
+    'flowers.js');
   /*
   signUpForSite(email, 'https://www.donaldjtrump.com/',
     'trump.js');
