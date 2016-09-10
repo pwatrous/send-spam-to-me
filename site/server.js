@@ -100,6 +100,10 @@ function signUp(email) {
     'hillary.js');
   signUpForSite(email, 'http://www.proflowers.com/blog/?ref=homenoref',
     'flowers.js');
+  signUpForSite(email, 'http://www.theblaze.com/newsletter',
+    'blaze.js');
+  signUpForSite(email, 'http://odb.org/email-sign-up/',
+    'odb.js');
   /*
   signUpForSite(email, 'https://www.donaldjtrump.com/',
     'trump.js');
