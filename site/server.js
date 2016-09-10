@@ -7,6 +7,8 @@ var util = require('util');
 var phantom = require('phantom');
 var validator = require('validator');
 
+var port = 1185;
+
 /*
 Serving of root html page
 */
@@ -117,5 +119,5 @@ function setupInjectedScript(email, script) {
   return raw.replace('%%EMAIL_ADDRESS%%', email);
 }
 
-server.listen(1185);
-console.log("server listening on 1185");
+server.listen(port);
+console.log("server listening on " + port);
