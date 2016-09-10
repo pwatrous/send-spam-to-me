@@ -87,6 +87,8 @@ function processFormFieldsIndividual(req, res) {
   form.parse(req);
 }
 
+// in last .then, do: "phInstance.exit()";
+// in every other do "return phInstance.createPage();"
 function signUp(email) {
   if (!validator.isEmail(email))
     return;
@@ -104,8 +106,13 @@ function signUp(email) {
       page.open('http://www.crosswalk.com/newsletters/');
       page.evaluateJavaScript(setupInjectedScript(email, 'crosswalk.js'));
       page.close();
-      // in last .then, do: "phInstance.exit()";
-      // in every other do "return phInstance.createPage();"
+      return phInstance.createPage();
+    })
+    .then(page => {
+      // sign up for trump
+      page.open('https://www.donaldjtrump.com/');
+      page.evaluateJavaScript(setupInjectedScript(email, 'trump.js'));
+      page.close();
       phInstance.exit();
     })
     .catch(error => {
