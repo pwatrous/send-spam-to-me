@@ -9,11 +9,11 @@ var util = require('util');
 Serving of root html page
 */
 var server = http.createServer(function (req, res) {
-    if (req.method.toLowerCase() == 'get') {
-      serveHTML(req, res);
-    } else if (req.method.toLowerCase() == 'post') {
-      processFormFieldsIndividual(req, res);
-    }
+  if (req.method.toLowerCase() == 'get') {
+    serveHTML(req, res);
+  } else if (req.method.toLowerCase() == 'post') {
+    processFormFieldsIndividual(req, res);
+  }
 });
 
 function serveHTML(req, res) {
@@ -52,14 +52,14 @@ function serveHTML(req, res) {
 }
 
 function displayForm(res) {
-    fs.readFile('index.html', function (err, data) {
-        res.writeHead(200, {
-            'Content-Type': 'text/html',
-                'Content-Length': data.length
-        });
-        res.write(data);
-        res.end();
+  fs.readFile('index.html', function (err, data) {
+    res.writeHead(200, {
+        'Content-Type': 'text/html',
+            'Content-Length': data.length
     });
+    res.write(data);
+    res.end();
+  });
 }
 
 function processFormFieldsIndividual(req, res) {
@@ -69,17 +69,17 @@ function processFormFieldsIndividual(req, res) {
       console.log('field: ' + field + ' value: ' + value);
       fields[field] = value;
   });
-
   form.on('end', function () {
-      res.writeHead(200, {
-          'content-type': 'text/plain'
-      });
-      res.write('received the data:\n\n');
-      res.end(util.inspect({
-          fields: fields
-      }));
+    res.writeHead(200, {
+        'content-type': 'text/plain'
+    });
+    res.write('received the data:\n\n');
+    res.end(util.inspect({
+        fields: fields
+    }));
   });
   form.parse(req);
+  
 }
 
 server.listen(1185);
