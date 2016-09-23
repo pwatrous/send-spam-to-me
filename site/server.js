@@ -104,12 +104,12 @@ function signUp(email) {
     'blaze.js');
   signUpForSite(email, 'http://odb.org/email-sign-up/',
     'odb.js');
-  /*
   signUpForSite(email, 'https://www.donaldjtrump.com/',
     'trump.js');
-  */
-  /*signUpForSite(email, 'http://www.owletcare.com/mailing-list',
-    'owletcare.js');*/
+  signUpForSite(email, 'http://www.owletcare.com/mailing-list',
+    'owletcare.js');
+  signUpForSite(email, 'http://www.crosswalk.com/newsletters/',
+    'crosswalk2.js');
 }
 
 function signUpForSite(email, url, script) {
